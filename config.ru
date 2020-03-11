@@ -1,0 +1,12 @@
+require './config/environment'
+
+if ActiveRecord::Migrator.needs_migration?
+  raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
+end
+
+#put other controllers here
+
+
+use BarbersController
+run ApplicationController
+use ClientsController
