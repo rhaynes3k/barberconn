@@ -17,12 +17,16 @@ ActiveRecord::Schema.define(version: 20200311041222) do
     t.string "name"
     t.string "location"
     t.string "specialty"
+    t.string "username"
+    t.string "password_digest"
   end
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.datetime "appt_date"
     t.string   "style"
+    t.string   "username"
+    t.string   "password_digest"
     t.integer  "barber_id"
   end
 
