@@ -4,6 +4,8 @@ class CreateBarbers < ActiveRecord::Migration
       t.string :name
       t.string :location
       t.string :specialty
+      t.string :username
+      t.string :password_digest
     end
   end
 end

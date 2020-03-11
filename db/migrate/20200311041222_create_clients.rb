@@ -4,6 +4,8 @@ class CreateClients < ActiveRecord::Migration
       t.string :name
       t.timestamp :appt_date
       t.string :style
+      t.string :username
+      t.string :password_digest
       t.integer :barber_id
     end
   end
