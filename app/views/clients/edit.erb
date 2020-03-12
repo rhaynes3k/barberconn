@@ -1,1 +1,8 @@
 <h1>Insert the form to edit an instance of your model here.</h1>
+<form method="post" action="/clients/<%= @client.id %>">
+  <input name="_method" type="hidden" value="patch">
+  <h3>Name: <input type="text" value="<%= @client.name %>" name="name"></h3>
+  <h3>Username: <input type="text" value="<%= @client.username %>"name="username"></h3>
+  <h3>Style: <input type="text" value="<%= @client.style %>"name="style"></h3>
+  <input type="submit" value="Submit">
+</form>

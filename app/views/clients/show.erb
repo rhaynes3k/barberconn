@@ -2,3 +2,8 @@
 
 <h2>Client Name: <%= @client.name %></h2>
 <h2>Client Style: <%= @client.style %></h2>
+
+<!-- <input type="submit" a href= value="Logout"> -->
+<a href="/clients/<%= @client.id %>/edit">Edit</a>
+<br>
+<a href="/clients/logout">Logout</a>

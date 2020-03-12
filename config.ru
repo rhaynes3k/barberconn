@@ -5,7 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 #put other controllers here
-
+use Rack::MethodOverride
 use ClientsController
 use BarbersController
 run ApplicationController

@@ -21,10 +21,7 @@ class ApplicationController < Sinatra::Base
     erb :"barbers/index"
   end
 
-  get "/clients/login" do
-    # redirect '/clients.login'
-    erb :"clients/index"
-  end
+
 
 
 

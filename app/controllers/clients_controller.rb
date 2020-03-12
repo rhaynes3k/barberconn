@@ -15,7 +15,24 @@ class ClientsController < ApplicationController
   # POST: /clients
   post "/clients" do
     @new_cli = Client.create(params)
+    redirect :"/clients/show"
     #binding.pry
+  end
+
+  get "/clients/login" do
+    # redirect '/clients.login'
+    erb :"clients/login"
+  end
+
+  post "/clients/login" do
+    client = Client.find_by(username: params[:username])
+    session[:user_id] = client.id
+    redirect "/clients/#{client.id}"
+  end
+
+  get "/clients/logout" do
+    session.clear
+    redirect "/clients/login"
   end
 
   get "/clients/:id" do
@@ -24,17 +41,24 @@ class ClientsController < ApplicationController
     erb :"/clients/show"
   end
 
-  
+  # GET: /clients/5/edit
+  get "/clients/:id/edit" do
+    @client = Client.find(params[:id])
+    erb :"/clients/edit"
+  end
+
+  # PATCH: /clients/5
+  patch "/clients/:id" do
+    #binding.pry
+    @client = Client.find(params[:id])
+    @client.update(name: params[:name], username: params[:username], style: params[:style])
+    redirect "/clients/#{@client.id}"
+  end
 
 
 
 
 
-
-  # post "/clients/account" do
-  #   acct = Client.find_by(username: params[:username])
-  #   binding.pry
-  # end
 
   #
   # # GET: /clients/5
@@ -42,15 +66,9 @@ class ClientsController < ApplicationController
   # #   # erb :"/clients/shows"
   # # end
   #
-  # # GET: /clients/5/edit
-  # get "/clients/:id/edit" do
-  #   erb :"/clients/edit"
-  # end
+
   #
-  # # PATCH: /clients/5
-  # patch "/clients/:id" do
-  #   redirect "/clients/:id"
-  # end
+
   #
   # # DELETE: /clients/5/delete
   # delete "/clients/:id/delete" do
