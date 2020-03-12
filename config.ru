@@ -6,7 +6,6 @@ end
 
 #put other controllers here
 
-
+use ClientsController
 use BarbersController
 run ApplicationController
-use ClientsController

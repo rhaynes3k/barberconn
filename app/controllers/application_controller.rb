@@ -10,10 +10,22 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :"welcome"
+  end
+  #
+  get "/pick_acct_type" do
+    erb :"pick_login"
   end
 
-  
+  get "/barbers/login" do
+    erb :"barbers/index"
+  end
+
+  get "/clients/login" do
+    # redirect '/clients.login'
+    erb :"clients/index"
+  end
+
 
 
 
